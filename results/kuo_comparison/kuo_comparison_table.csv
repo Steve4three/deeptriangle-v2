@@ -1,0 +1,8 @@
+Experiment,N_companies,batch_size,ensemble,MAPE,MAPE_std,RMSPE
+E0: Phase 1 baseline,all (~170 WC),512,no (mean of 20 seeds),0.09828856753421147,0.0041169182905562525,
+"E1: 50-company, no ensemble",50,512,no (mean of 20 seeds),0.09134919273345499,0.007378842403010309,
+"E2: 50-company, ensemble (batch=512)",50,512,yes (20 models),0.08320368260412202,,0.1368572150032976
+"E3: 50-company, ensemble (batch=2250)",50,2250,yes (20 models),0.09262793532302747,,0.1583634210364849
+Mack CL (50-company subset),50,N/A,N/A,0.05763030170089975,,0.14881317612564846
+Kuo (2019) DeepTriangle,50,2250,yes (100 models),0.046,,
+Kuo (2019) Mack CL,50,N/A,N/A,0.053,,

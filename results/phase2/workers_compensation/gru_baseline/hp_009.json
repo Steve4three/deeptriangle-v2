@@ -1,0 +1,18 @@
+{
+  "arch": "gru_baseline",
+  "lob": "workers_compensation",
+  "config_idx": 9,
+  "dropout_rate": 0.04913,
+  "learning_rate": 0.004359,
+  "batch_size": 256,
+  "max_epochs": 1000,
+  "gru_units": 64,
+  "dense_units": 32,
+  "mape": 0.08810199501937029,
+  "rmspe": 0.16017031763584416,
+  "n_companies": 234,
+  "n_filtered": 0,
+  "training_time": 344.27,
+  "epochs_trained": 203,
+  "best_val_loss": 0.0010325716575607657
+}

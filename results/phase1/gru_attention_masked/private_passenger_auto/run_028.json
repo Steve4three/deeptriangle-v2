@@ -1,0 +1,12 @@
+{
+  "arch": "gru_attention_masked",
+  "lob": "private_passenger_auto",
+  "seed": 28,
+  "mape": 0.16484432457406684,
+  "rmspe": 0.272349480981291,
+  "n_companies": 284,
+  "n_filtered": 0,
+  "training_time": 100.93,
+  "epochs_trained": 211,
+  "best_val_loss": 0.00339912214419908
+}

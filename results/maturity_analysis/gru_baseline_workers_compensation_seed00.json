@@ -1,0 +1,87 @@
+{
+  "arch": "gru_baseline",
+  "lob": "workers_compensation",
+  "seed": 0,
+  "epochs_trained": 210,
+  "best_val_loss": 0.001198863610625267,
+  "training_time": 293.54,
+  "maturity_metrics": {
+    "overall": {
+      "mape": 0.08555839523237346,
+      "rmspe": 0.1931381740037087,
+      "n_companies": 234,
+      "n_ay": 9,
+      "n_outliers": 0
+    },
+    "mature": {
+      "mape": 0.03213861102697497,
+      "rmspe": 0.06375017704354158,
+      "n_companies": 203,
+      "n_ay": 5,
+      "n_outliers": 0
+    },
+    "immature": {
+      "mape": 0.12186259805481288,
+      "rmspe": 0.2566607360461794,
+      "n_companies": 234,
+      "n_ay": 4,
+      "n_outliers": 0
+    }
+  },
+  "per_lag_mape": [
+    {
+      "test_lag": 9,
+      "accident_year": 2002,
+      "n_companies": 168,
+      "mape": 0.01074508807314673
+    },
+    {
+      "test_lag": 8,
+      "accident_year": 2003,
+      "n_companies": 176,
+      "mape": 0.0160005771960237
+    },
+    {
+      "test_lag": 7,
+      "accident_year": 2004,
+      "n_companies": 184,
+      "mape": 0.026780442549692477
+    },
+    {
+      "test_lag": 6,
+      "accident_year": 2005,
+      "n_companies": 192,
+      "mape": 0.03688212070927
+    },
+    {
+      "test_lag": 5,
+      "accident_year": 2006,
+      "n_companies": 203,
+      "mape": 0.05527824671263697
+    },
+    {
+      "test_lag": 4,
+      "accident_year": 2007,
+      "n_companies": 214,
+      "mape": 0.06003586365942968
+    },
+    {
+      "test_lag": 3,
+      "accident_year": 2008,
+      "n_companies": 225,
+      "mape": 0.09020932079402318
+    },
+    {
+      "test_lag": 2,
+      "accident_year": 2009,
+      "n_companies": 232,
+      "mape": 0.127018201304843
+    },
+    {
+      "test_lag": 1,
+      "accident_year": 2010,
+      "n_companies": 234,
+      "mape": 0.19263543286340867
+    }
+  ]
+}

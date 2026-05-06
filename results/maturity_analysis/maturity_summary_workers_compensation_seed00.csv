@@ -1,0 +1,13 @@
+arch,lob,seed,group,mape,rmspe,n_companies,n_ay,n_outliers
+gru_baseline,workers_compensation,0,overall,0.08555839523237346,0.1931381740037087,234,9,0
+gru_baseline,workers_compensation,0,mature,0.03213861102697497,0.06375017704354158,203,5,0
+gru_baseline,workers_compensation,0,immature,0.12186259805481288,0.2566607360461794,234,4,0
+gru_attention,workers_compensation,0,overall,0.08397968518381475,0.18713260176582508,234,9,0
+gru_attention,workers_compensation,0,mature,0.034001198439923656,0.10407021733479513,203,5,0
+gru_attention,workers_compensation,0,immature,0.12055420908474172,0.23682954926897484,234,4,0
+gru_attention_unmasked,workers_compensation,0,overall,0.07654595115080925,0.23300188966426238,97,6,1
+gru_attention_unmasked,workers_compensation,0,mature,0.05999613364272377,0.23425124172797027,97,5,1
+gru_attention_unmasked,workers_compensation,0,immature,0.16719071548504577,0.2200540341823839,80,1,0
+mack_cl,workers_compensation,-1,overall,0.10731396381070744,0.21557063071327887,234,9,0
+mack_cl,workers_compensation,-1,mature,0.03712460425744301,0.0715529036799347,203,5,0
+mack_cl,workers_compensation,-1,immature,0.143091515975093,0.2449075077188811,234,4,0

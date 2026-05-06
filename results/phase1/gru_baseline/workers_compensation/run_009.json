@@ -1,0 +1,12 @@
+{
+  "arch": "gru_baseline",
+  "lob": "workers_compensation",
+  "seed": 9,
+  "mape": 0.10031855458918157,
+  "rmspe": 0.19908063723940228,
+  "n_companies": 234,
+  "n_filtered": 0,
+  "training_time": 57.3,
+  "epochs_trained": 202,
+  "best_val_loss": 0.0011508740967006556
+}

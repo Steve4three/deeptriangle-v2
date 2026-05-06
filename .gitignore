@@ -1,0 +1,35 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model weights (large)
+*.h5
+*.weights.h5
+*.keras
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.log
+paper/*.out
+
+# Experiment outputs — allow pre-computed results for replication
+# but exclude model weights (large binaries) and PNG duplicates
+results/*/weights/
+results/figures/
+
+# PyTorch weights
+*.pt
+*.bak

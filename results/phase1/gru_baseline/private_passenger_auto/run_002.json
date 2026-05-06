@@ -1,0 +1,12 @@
+{
+  "arch": "gru_baseline",
+  "lob": "private_passenger_auto",
+  "seed": 2,
+  "mape": 0.046056819965728364,
+  "rmspe": 0.08702390303958811,
+  "n_companies": 284,
+  "n_filtered": 0,
+  "training_time": 84.43,
+  "epochs_trained": 201,
+  "best_val_loss": 0.0004885703593673599
+}

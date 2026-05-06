@@ -1,0 +1,11 @@
+{
+  "seed": 5,
+  "mape": 0.10533550809329528,
+  "rmspe": 0.16405727713479468,
+  "n_companies": 50,
+  "n_filtered": 0,
+  "training_time": 125.17,
+  "epochs_trained": 208,
+  "best_val_loss": 0.001248341053724289,
+  "exp": "e1"
+}
