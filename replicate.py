@@ -51,6 +51,7 @@ EXPECTED_FIGURES = [
     "architecture_compare.pdf",
     "mape_boxplot.pdf",
     "attention_bimodal.pdf",
+    "attention_collapse_diagnostic.pdf",
     "rf_importance.pdf",
     "partial_dependence.png",
     "temporal_robustness.pdf",
@@ -78,6 +79,7 @@ REQUIRED_RESULT_DIRS = [
     "phase2/private_passenger_auto",
     "phase2/private_passenger_auto/multiseed",
     "temporal",
+    "diagnostics",
 ]
 
 
@@ -391,6 +393,15 @@ def run_verify(
     # Define analysis steps: (name, cmd, timeout)
     all_steps: List[Tuple[str, List[str], int]] = [
         ("Analyze paper figures and tables", ["analyze_results.py"], DEFAULT_TIMEOUT),
+        (
+            "Generate attention-collapse diagnostic figure",
+            [
+                "make_attention_collapse_diagnostic.py",
+                "--out-dir",
+                "results/figures",
+            ],
+            DEFAULT_TIMEOUT,
+        ),
         ("Generate HP partial-dependence figure", ["analyze_hp_sensitivity.py", "--output", "results/figures"], DEFAULT_TIMEOUT),
         ("Show paper table/figure summary", ["__paper_summary__"], DEFAULT_TIMEOUT),
     ]
@@ -398,9 +409,10 @@ def run_verify(
     # Filter to a single step if requested
     if step_filter:
         step_map: Dict[str, List[int]] = {
-            "figures": [0, 1],
-            "analysis": [0, 1, 2],
-            "tables": [2],
+            "figures": [0, 1, 2],
+            "diagnostic": [1],
+            "analysis": [0, 1, 2, 3],
+            "tables": [3],
         }
         indices = step_map.get(step_filter)
         if indices is None:
@@ -481,6 +493,15 @@ def run_cas(
         ("Temporal robustness (3 windows)", ["run_temporal.py", "--archs", "gru_baseline"], LONG_TIMEOUT),
         ("Kuo comparison experiments", ["run_kuo_comparison.py"], DEFAULT_TIMEOUT),
         ("Analyze paper figures and tables", ["analyze_results.py"], DEFAULT_TIMEOUT),
+        (
+            "Generate attention-collapse diagnostic figure",
+            [
+                "make_attention_collapse_diagnostic.py",
+                "--out-dir",
+                "results/figures",
+            ],
+            DEFAULT_TIMEOUT,
+        ),
         ("Generate HP partial-dependence figure", ["analyze_hp_sensitivity.py", "--output", "results/figures"], DEFAULT_TIMEOUT),
         ("Analyze maturity effects", ["analyze_maturity.py"], DEFAULT_TIMEOUT),
         ("Show paper table/figure summary", ["__paper_summary__"], DEFAULT_TIMEOUT),
@@ -497,10 +518,11 @@ def run_cas(
             "phase2-validate": [4],
             "temporal": [5],
             "kuo": [6],
-            "figures": [7, 8],
-            "analysis": [7, 8, 9, 10],
-            "maturity": [9],
-            "tables": [10],
+            "figures": [7, 8, 9],
+            "diagnostic": [8],
+            "analysis": [7, 8, 9, 10, 11],
+            "maturity": [10],
+            "tables": [11],
         }
         indices = step_map.get(step_filter)
         if indices is None:
@@ -556,9 +578,9 @@ examples:
         metavar="STEP",
         help=(
             "Run only a specific step. "
-            "Verify: figures, analysis, tables. "
+            "Verify: figures, diagnostic, analysis, tables. "
             "CAS: data, phase1, benchmarks, phase2, phase2-screen, phase2-validate, "
-            "temporal, kuo, figures, analysis, maturity, tables"
+            "temporal, kuo, figures, diagnostic, analysis, maturity, tables"
         ),
     )
     parser.add_argument(

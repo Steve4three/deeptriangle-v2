@@ -40,13 +40,19 @@ We compare three neural network architectures for aggregate loss triangle reserv
 ├── analyze_results.py           # Phase 1/2 analysis and figure generation
 ├── analyze_maturity.py          # Maturity-stratified analysis
 ├── analyze_hp_sensitivity.py    # Paper partial-dependence figure
+├── make_attention_collapse_diagnostic.py  # Reviewer 2 diagnostic figure
 ├── requirements.txt             # Python dependencies
 ├── data/
 │   └── README.md                # Data description and sourcing instructions
+├── paper/
+│   ├── paper.tex                # Manuscript source
+│   └── Definitions/             # MDPI journal class files
 └── results/                     # Shipped pre-computed source results
+    ├── diagnostics/             # De-identified data for appendix diagnostic figure
+    └── phase2/                  # WC and native PPA Phase 2 result folders
 ```
 
-Note: generated figures are intentionally not shipped. `python replicate.py` recreates `results/figures/` from the pre-computed source results.
+Note: generated figures are intentionally not shipped. `python replicate.py` recreates `results/figures/` from the pre-computed source results. The attention-collapse diagnostic uses `results/diagnostics/attention_collapse_diagnostic_data.json`, a de-identified plot-data file containing loss curves and anonymized actual-vs-predicted ultimate-ratio coordinates. A top-level `figures/` directory, if present in a local working copy, is stale scratch output.
 
 ## Data
 
@@ -102,12 +108,13 @@ python replicate.py --cas
 
 # Run a specific step only
 python replicate.py --cas --step phase1
+python replicate.py --step diagnostic
 
 # See all options
 python replicate.py --help
 ```
 
-`replicate.py` orchestrates the entire pipeline. In **verify** mode (default), it regenerates all paper figures and tables from the shipped pre-computed results in `results/`. In **CAS** mode (`--cas`), it downloads the [CAS Loss Reserving Data](https://www.casact.org/publications-research/research/research-resources/loss-reserving-data-pulled-naic-schedule-p), trains all models from scratch, and produces the full analysis.
+`replicate.py` orchestrates the entire pipeline. In **verify** mode (default), it regenerates all paper figures and tables from the shipped pre-computed results in `results/`. In **CAS** mode (`--cas`), it downloads the [CAS Loss Reserving Data](https://www.casact.org/publications-research/research/research-resources/loss-reserving-data-pulled-naic-schedule-p), trains all models from scratch, and produces the full analysis. The `diagnostic` step is lightweight and regenerates the appendix attention-collapse diagnostic from de-identified plot data, so it does not require proprietary training data or private archive artifacts.
 
 ## Reproducing Results (Individual Scripts)
 
@@ -153,6 +160,7 @@ python benchmarks.py
 python analyze_results.py           # Phase 1/2 figures and tables
 python analyze_maturity.py          # Maturity-stratified analysis
 python analyze_hp_sensitivity.py    # Partial-dependence figure
+python replicate.py --step diagnostic  # Attention-collapse diagnostic figure
 python replicate.py --step tables   # Print paper table/figure summary
 ```
 
