@@ -394,6 +394,15 @@ def run_verify(
     all_steps: List[Tuple[str, List[str], int]] = [
         ("Analyze paper figures and tables", ["analyze_results.py"], DEFAULT_TIMEOUT),
         (
+            "Compute RF permutation-importance robustness check",
+            [
+                "compute_rf_permutation_importance.py",
+                "--out",
+                "results/diagnostics/rf_permutation_importance_check.json",
+            ],
+            DEFAULT_TIMEOUT,
+        ),
+        (
             "Generate attention-collapse diagnostic figure",
             [
                 "make_attention_collapse_diagnostic.py",
@@ -409,10 +418,11 @@ def run_verify(
     # Filter to a single step if requested
     if step_filter:
         step_map: Dict[str, List[int]] = {
-            "figures": [0, 1, 2],
-            "diagnostic": [1],
-            "analysis": [0, 1, 2, 3],
-            "tables": [3],
+            "figures": [0, 2, 3],
+            "rf-robustness": [1],
+            "diagnostic": [2],
+            "analysis": [0, 1, 2, 3, 4],
+            "tables": [4],
         }
         indices = step_map.get(step_filter)
         if indices is None:
@@ -494,6 +504,15 @@ def run_cas(
         ("Kuo comparison experiments", ["run_kuo_comparison.py"], DEFAULT_TIMEOUT),
         ("Analyze paper figures and tables", ["analyze_results.py"], DEFAULT_TIMEOUT),
         (
+            "Compute RF permutation-importance robustness check",
+            [
+                "compute_rf_permutation_importance.py",
+                "--out",
+                "results/diagnostics/rf_permutation_importance_check.json",
+            ],
+            DEFAULT_TIMEOUT,
+        ),
+        (
             "Generate attention-collapse diagnostic figure",
             [
                 "make_attention_collapse_diagnostic.py",
@@ -518,11 +537,12 @@ def run_cas(
             "phase2-validate": [4],
             "temporal": [5],
             "kuo": [6],
-            "figures": [7, 8, 9],
-            "diagnostic": [8],
-            "analysis": [7, 8, 9, 10, 11],
-            "maturity": [10],
-            "tables": [11],
+            "figures": [7, 9, 10],
+            "rf-robustness": [8],
+            "diagnostic": [9],
+            "analysis": [7, 8, 9, 10, 11, 12],
+            "maturity": [11],
+            "tables": [12],
         }
         indices = step_map.get(step_filter)
         if indices is None:
@@ -578,9 +598,9 @@ examples:
         metavar="STEP",
         help=(
             "Run only a specific step. "
-            "Verify: figures, diagnostic, analysis, tables. "
+            "Verify: figures, diagnostic, rf-robustness, analysis, tables. "
             "CAS: data, phase1, benchmarks, phase2, phase2-screen, phase2-validate, "
-            "temporal, kuo, figures, diagnostic, analysis, maturity, tables"
+            "temporal, kuo, figures, diagnostic, rf-robustness, analysis, maturity, tables"
         ),
     )
     parser.add_argument(

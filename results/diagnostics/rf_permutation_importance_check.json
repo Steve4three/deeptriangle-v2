@@ -1,0 +1,91 @@
+{
+  "method": "RandomForestRegressor surrogate fitted to Phase 2 screening configurations; permutation_importance with scoring=neg_mean_absolute_error. Normalized values divide each mean decrease by the sum of mean decreases within LOB.",
+  "feature_order": [
+    "dropout_rate",
+    "learning_rate",
+    "batch_size",
+    "max_epochs",
+    "gru_units",
+    "dense_units"
+  ],
+  "n_repeats": 200,
+  "random_state": 42,
+  "lobs": {
+    "workers_compensation": {
+      "n_configs": 100,
+      "train_r2": 0.9034784334028736,
+      "cv_mae_mean": 0.00682876309267857,
+      "cv_mae_std": 0.001139397523320729,
+      "impurity_importance": {
+        "dropout_rate": 0.26691159455335,
+        "learning_rate": 0.4651951612463291,
+        "batch_size": 0.06445140199442452,
+        "max_epochs": 0.04634341539462295,
+        "gru_units": 0.08131545228696936,
+        "dense_units": 0.0757829745243041
+      },
+      "permutation_mean_decrease_mae": {
+        "dropout_rate": 0.0027941204913544343,
+        "learning_rate": 0.004584930379024716,
+        "batch_size": 0.0012489362627158226,
+        "max_epochs": 0.0008817774360808628,
+        "gru_units": 0.0016359770935741673,
+        "dense_units": 0.0015857046700544079
+      },
+      "permutation_std_decrease_mae": {
+        "dropout_rate": 0.0002684149074676593,
+        "learning_rate": 0.0004506085498156205,
+        "batch_size": 0.000136635416358062,
+        "max_epochs": 0.00012950655243002698,
+        "gru_units": 0.0001807462790964903,
+        "dense_units": 0.00017977401636592075
+      },
+      "permutation_normalized": {
+        "dropout_rate": 0.21946606994328516,
+        "learning_rate": 0.36012643490559126,
+        "batch_size": 0.09809853728069826,
+        "max_epochs": 0.06925980073519501,
+        "gru_units": 0.12849891919654374,
+        "dense_units": 0.12455023793868657
+      }
+    },
+    "private_passenger_auto": {
+      "n_configs": 100,
+      "train_r2": 0.8987665810052606,
+      "cv_mae_mean": 0.019754567718679818,
+      "cv_mae_std": 0.0038727932758793973,
+      "impurity_importance": {
+        "dropout_rate": 0.2527587840903213,
+        "learning_rate": 0.4691322770175905,
+        "batch_size": 0.08333986498926611,
+        "max_epochs": 0.04145557402962953,
+        "gru_units": 0.08204647938876972,
+        "dense_units": 0.07126702048442293
+      },
+      "permutation_mean_decrease_mae": {
+        "dropout_rate": 0.00680355487993316,
+        "learning_rate": 0.01354123144487685,
+        "batch_size": 0.004655274222133572,
+        "max_epochs": 0.002598921142517771,
+        "gru_units": 0.004359142566988677,
+        "dense_units": 0.0033825655166086124
+      },
+      "permutation_std_decrease_mae": {
+        "dropout_rate": 0.0005002150017409581,
+        "learning_rate": 0.0012086547234033938,
+        "batch_size": 0.0004944090800173334,
+        "max_epochs": 0.00033404766300184583,
+        "gru_units": 0.0004823530746090177,
+        "dense_units": 0.0003515901609399458
+      },
+      "permutation_normalized": {
+        "dropout_rate": 0.1925133585004255,
+        "learning_rate": 0.38316262449409716,
+        "batch_size": 0.1317256186007563,
+        "max_epochs": 0.07353906104286094,
+        "gru_units": 0.12334627860919095,
+        "dense_units": 0.09571305875266904
+      }
+    }
+  }
+}
